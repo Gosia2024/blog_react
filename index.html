@@ -25,6 +25,7 @@
           <div>
             <Title text={props.title} />
             <p>{props.shortContent}...</p>
+            {props.content}
             <button>Czytaj wiecje</button>
             <hr />
           </div>
@@ -33,19 +34,35 @@
       
       const Blog = () => {
         const posts = [
-        { id: 1, title: "Przepis na nalesniki", shortContent: "Na naturalnym mleku" },
-        { id: 2, title: "Przepis na kurczaka", shortContent: "Na ostro" },
+        { id: 1, 
+          title: "Przepis na nalesniki",
+           shortContent: "Na naturalnym mleku",
+          content: 'mleko, jaka zmieszac...',
+          showContent: true,
+          },
+
+        { id: 2,
+           title: "Przepis na kurczaka",
+            shortContent: "Na ostro",
+            content: 'pokroic kurczaka, usmazyc',
+            showContent: false,
+          
+          },
       ]
-        return <div>
-          <p>To jest blog o gotwaniu</p>
-            {posts.map(post  => (
+      const postList = posts.map(post  => (
            
               <Post
               key={post.id}
                 title={post.title}
                 shortContent={post.shortContent}
+                content={post.content}
+                showContent={post.showContent}
               />
-            ))}
+            ))
+
+        return <div>
+          <p>To jest blog o gotwaniu</p>
+          {postList}
           
      </div>
     }
