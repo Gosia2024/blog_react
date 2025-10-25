@@ -12,12 +12,12 @@
     <div id="app"></div>
 
     <script type="text/babel">
-      const Title = () => <h1>Mój tytuł</h1>;
+      const Title = (props) => <h2>{props.text}</h2>;
 
      const Post = (props) => {
         return(
          <div>
-                <h2>{props.title}</h2>
+                <Title text={props.title}/>
                 <p>{props.shortContent}...</p>
                 <button>Czytaj wiecje</button>
                 <hr />
