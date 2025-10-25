@@ -13,23 +13,34 @@
 
     <script type="text/babel">
       const Title = () => <h1>Mój tytuł</h1>;
+
+     const Post = (props) => {
+        return(
+         <div>
+                <h2>{props.title}</h2>
+                <p>{props.shortContent}...</p>
+                <button>Czytaj wiecje</button>
+                <hr />
+            </div>
+
+        )
+
+
+     }
+
       const Blog = () => {
         return <div>
           
             <p>To jest blog o gotwaniu</p>
-
-            <div>
-                <h2>Przepis na nalesniki</h2>
-                <p>Na naturalnym mleku</p>
-                <button>Czytaj wiecje</button>
-                <hr />
-            </div>
-             <div>
-                <h2>Przepis na kurczaka</h2>
-                <p>Na nostro</p>
-                <button>Czytaj wiecje</button>
-                <hr />
-            </div>
+            <Post 
+            title="Przepis na nalesniki" 
+            shortContent="Na naturalnym mleku"/>
+            <Post 
+            title="Przepis na kurczaka"
+            shortContent="Na ostro"
+            />
+           
+           
           </div>
         
       }
