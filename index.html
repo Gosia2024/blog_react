@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My React app</title>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app"></div>
 
     <script type="text/babel">
       const Title = (props) => <h2>{props.text}</h2>;
 
-     const Post = (props) => {
-        return(
-         <div>
-                <Title text={props.title}/>
-                <p>{props.shortContent}...</p>
-                <button>Czytaj wiecje</button>
-                <hr />
-            </div>
-
-        )
-
-
-     }
-
-      const Blog = () => {
-        return <div>
-          
-            <p>To jest blog o gotwaniu</p>
-            <Post 
-            title="Przepis na nalesniki" 
-            shortContent="Na naturalnym mleku"/>
-            <Post 
-            title="Przepis na kurczaka"
-            shortContent="Na ostro"
-            />
-           
-           
+      const Post = (props) => {
+        return (
+          <div>
+            <Title text={props.title} />
+            <p>{props.shortContent}...</p>
+            <button>Czytaj wiecje</button>
+            <hr />
           </div>
-        
-      }
+        );
+      };
+      
+      const Blog = () => {
+        const posts = [
+        { id: 1, title: "Przepis na nalesniki", shortContent: "Na naturalnym mleku" },
+        { id: 2, title: "Przepis na kurczaka", shortContent: "Na ostro" },
+      ]
+        return <div>
+          <p>To jest blog o gotwaniu</p>
+            {posts.map(post  => (
+           
+              <Post
+              key={post.id}
+                title={post.title}
+                shortContent={post.shortContent}
+              />
+            ))}
+          
+     </div>
+    }
 
-      ReactDOM.createRoot(document.getElementById("app"))
-      .render(<Blog />);
+      ReactDOM.createRoot(document.getElementById("app")).render(<Blog />);
     </script>
-  
-</body>
+  </body>
 </html>
