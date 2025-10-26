@@ -24,13 +24,19 @@
         return (
           <div>
             <Title text={props.title} />
+            {props.showContent
+           ? <p>{props.content}</p>
+           :<>
             <p>{props.shortContent}...</p>
-            {props.content}
             <button>Czytaj wiecje</button>
+            </>
+
+         
+          }
             <hr />
           </div>
-        );
-      };
+        )
+      }
       
       const Blog = () => {
         const posts = [
