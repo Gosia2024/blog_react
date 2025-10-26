@@ -21,14 +21,18 @@
       const Title = (props) => <h2>{props.text}</h2>;
 
       const Post = (props) => {
+        const showContent = false
+        const showMore = () =>{
+         showContent = true
+        }
         return (
           <div>
             <Title text={props.title} />
-            {props.showContent
+            {showContent
            ? <p>{props.content}</p>
            :<>
             <p>{props.shortContent}...</p>
-            <button>Czytaj wiecje</button>
+            <button onClick={showMore}>Czytaj wiecje</button>
             </>
 
          
@@ -44,14 +48,14 @@
           title: "Przepis na nalesniki",
            shortContent: "Na naturalnym mleku",
           content: 'mleko, jaka zmieszac...',
-          showContent: true,
+         
           },
 
         { id: 2,
            title: "Przepis na kurczaka",
             shortContent: "Na ostro",
             content: 'pokroic kurczaka, usmazyc',
-            showContent: false,
+       
           
           },
       ]
