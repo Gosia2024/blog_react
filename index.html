@@ -21,9 +21,10 @@
       const Title = (props) => <h2>{props.text}</h2>;
 
       const Post = (props) => {
-        const showContent = false
+        const [showContent, setShowContent] = React.useState(false)
         const showMore = () =>{
-         showContent = true
+         //showContent = true
+         setShowContent(true)
         }
         return (
           <div>
